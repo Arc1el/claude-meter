@@ -7,12 +7,13 @@ class LanguageManager: ObservableObject {
     }
 
     init() {
-        language = UserDefaults.standard.string(forKey: "appLanguage") ?? "ko"
+        language = UserDefaults.standard.string(forKey: "appLanguage") ?? "en"
     }
 
     var isKorean: Bool { language == "ko" }
 
-    /// 한국어면 ko, 영어면 en 반환
+    var locale: Locale { Locale(identifier: isKorean ? "ko_KR" : "en_US") }
+
     func s(_ ko: String, _ en: String) -> String { isKorean ? ko : en }
 
     func toggle() { language = isKorean ? "en" : "ko" }

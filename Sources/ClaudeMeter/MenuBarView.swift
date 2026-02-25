@@ -129,6 +129,7 @@ struct MenuBarView: View {
             .padding(.vertical, 10)
         }
         .frame(width: 280)
+        .environment(\.locale, lang.locale)
     }
 }
 
@@ -180,6 +181,11 @@ struct WeeklyUsageView: View {
                         .frame(width: max(8, geo.size.width * pct), height: 10)
                         .animation(.easeOut(duration: 0.4), value: pct)
                 }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.primary.opacity(0.15), lineWidth: 0.5)
+                        .frame(height: 10)
+                )
             }
             .frame(height: 10)
 
@@ -238,6 +244,11 @@ struct UsageLimitView: View {
                         .frame(width: max(8, geo.size.width * pct), height: 10)
                         .animation(.easeOut(duration: 0.4), value: pct)
                 }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.primary.opacity(0.15), lineWidth: 0.5)
+                        .frame(height: 10)
+                )
             }
             .frame(height: 10)
 

@@ -6,6 +6,8 @@ macOS menu bar app that shows your Claude Code usage in real time.
 
 ---
 
+![ClaudeMeter main screenshot](static/main.png)
+
 ## What it does
 
 - **Menu bar icon** — live progress bar and percentage of your current session limit
@@ -30,7 +32,7 @@ ClaudeMeter spawns a Python subprocess that opens a pseudo-terminal (PTY), start
 ## Build & install
 
 ```bash
-git clone https://github.com/yourname/claude-meter
+git clone https://github.com/Arc1el/claude-meter
 cd claude-meter
 bash build.sh
 ```
@@ -70,6 +72,8 @@ claude-meter/
 ClaudeMeter itself requests **no system permissions**. It only reads from the filesystem and spawns a subprocess.
 
 However, macOS may show permission dialogs (Photos, Microphone, etc.) and attribute them to ClaudeMeter. This happens because ClaudeMeter launches the `claude` CLI via a PTY subprocess, and macOS sometimes attributes the child process's permission requests to the parent app.
+
+![Permission alert example](static/permission.png)
 
 **You can safely deny all such requests.** ClaudeMeter will continue to work normally regardless.
 

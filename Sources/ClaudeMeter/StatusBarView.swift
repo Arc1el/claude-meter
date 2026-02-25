@@ -23,6 +23,7 @@ struct StatusBarView: View {
                 Image(systemName: "bolt.fill")
                     .font(.system(size: 9, weight: .black))
                     .foregroundStyle(.yellow)
+                    .shadow(color: .black.opacity(0.5), radius: 0.5)
 
                 if statsManager.isLoadingUsage {
                     Text(languageManager.s("로딩중...", "Loading..."))
@@ -48,6 +49,10 @@ struct StatusBarView: View {
                             .frame(width: max(3, 90 * pct))
                     }
                     .frame(width: 90, height: 6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 2)
+                            .stroke(Color.primary.opacity(0.25), lineWidth: 0.5)
+                    )
 
                     Text(String(format: "%d%%", Int(pct * 100)))
                         .font(.system(size: 11, weight: .semibold))
@@ -89,6 +94,7 @@ struct StatusBarWrapper: View {
         StatusBarView()
             .environmentObject(statsManager)
             .environmentObject(languageManager)
+            .environment(\.locale, languageManager.locale)
     }
 }
 
