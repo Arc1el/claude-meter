@@ -60,6 +60,26 @@ echo ""
 echo "✅ 빌드 성공! → ${APP_BUNDLE}"
 echo ""
 
+# DMG 생성
+DMG_NAME="${APP_NAME}.dmg"
+DMG_TMP_DIR="$(mktemp -d)"
+
+echo "💿 DMG 생성 중..."
+cp -r "${APP_BUNDLE}" "${DMG_TMP_DIR}/"
+ln -s /Applications "${DMG_TMP_DIR}/Applications"
+
+rm -f "${DMG_NAME}"
+hdiutil create \
+    -volname "${APP_NAME}" \
+    -srcfolder "${DMG_TMP_DIR}" \
+    -ov \
+    -format UDZO \
+    "${DMG_NAME}" > /dev/null 2>&1
+
+rm -rf "${DMG_TMP_DIR}"
+echo "✅ DMG 생성 완료! → ${DMG_NAME}"
+echo ""
+
 # 설치 여부 묻기
 read -p "📥 /Applications 에 설치할까요? (y/N) " -n 1 -r
 echo ""
