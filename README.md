@@ -29,7 +29,15 @@ ClaudeMeter spawns a Python subprocess that opens a pseudo-terminal (PTY), start
 - [Claude Code](https://claude.ai/claude-code) installed (`claude` on your `$PATH`)
 - Python 3 (ships with macOS)
 
-## Build & install
+## Install
+
+### Option A — DMG (easiest)
+
+1. Download `ClaudeMeter.dmg` from the [Releases](https://github.com/Arc1el/claude-meter/releases) page
+2. Open the DMG and drag **ClaudeMeter** into **Applications**
+3. Launch from Applications or Spotlight — no Dock icon will appear
+
+### Option B — Build from source
 
 ```bash
 git clone https://github.com/Arc1el/claude-meter
@@ -37,9 +45,9 @@ cd claude-meter
 bash build.sh
 ```
 
-The script compiles a release binary, packages `ClaudeMeter.app`, signs it ad-hoc, and prompts you to copy it to `/Applications`.
+`build.sh` compiles a release binary, packages `ClaudeMeter.app`, signs it ad-hoc, produces `ClaudeMeter.dmg`, and prompts you to copy the app to `/Applications`.
 
-To build without the installer prompt:
+To build without any prompts:
 
 ```bash
 swift build -c release
@@ -51,7 +59,7 @@ swift build -c release
 open ClaudeMeter.app
 ```
 
-ClaudeMeter runs as a menu bar agent — no Dock icon. To quit, click the icon → **종료**.
+ClaudeMeter runs as a menu bar agent — no Dock icon. To quit, click the icon → **Quit**.
 
 ## Project structure
 
