@@ -6,7 +6,9 @@ macOS menu bar app that shows your Claude Code usage in real time.
 
 ---
 
-![ClaudeMeter main screenshot](static/main.png)
+<p align="center">
+  <img src="static/main.png" alt="ClaudeMeter main screenshot" />
+</p>
 
 ## What it does
 
@@ -81,7 +83,9 @@ ClaudeMeter itself requests **no system permissions**. It only reads from the fi
 
 However, macOS may show permission dialogs (Photos, Microphone, etc.) and attribute them to ClaudeMeter. This happens because ClaudeMeter launches the `claude` CLI via a PTY subprocess, and macOS sometimes attributes the child process's permission requests to the parent app.
 
-![Permission alert example](static/permission.png)
+<p align="center">
+  <img src="static/permission.png" alt="Permission alert example" />
+</p>
 
 **You can safely deny all such requests.** ClaudeMeter will continue to work normally regardless.
 
